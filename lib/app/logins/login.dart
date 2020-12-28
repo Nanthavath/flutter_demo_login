@@ -36,7 +36,7 @@ class _LoginState extends State<Login> {
 
   _textwelcome() {
     return Container(
-      margin: EdgeInsets.all(5.0),
+      // margin: EdgeInsets.all(5.0),
       child: Column(
         children: <Widget>[
           Text(
@@ -50,7 +50,6 @@ class _LoginState extends State<Login> {
 
   _buildTextInputusername() {
     return Container(
-      margin: EdgeInsets.all(10),
       child: Column(
         children: <Widget>[TextField()],
       ),
@@ -59,7 +58,6 @@ class _LoginState extends State<Login> {
 
   _buildTextInputpassword() {
     return Container(
-      margin: EdgeInsets.all(10),
       child: Column(
         children: <Widget>[TextField()],
       ),
@@ -68,9 +66,8 @@ class _LoginState extends State<Login> {
 
   _buttonok() {
     return Container(
-      child: Column(
-        children: <Widget>[RaisedButton()],
-      ),
-    );
+        child: Column(
+      children: <Widget>[RaisedButton(), Text('ຕົກລົງ')],
+    ));
   }
 }
