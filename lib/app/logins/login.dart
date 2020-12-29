@@ -16,10 +16,24 @@ class _LoginState extends State<Login> {
           children: [
             _logologin(),
             _textwelcome(),
-            _buildTextInputusername(),
-            _buildTextInputusername(),
+            _buildTextInput(
+                Icon(
+                  Icons.person_outline,
+                  size: 30,
+                  color: Colors.black54,
+                ),
+                "ຊື່ຜູ້ໃຊ້",
+                false),
+            _buildTextInput(
+                Icon(
+                  Icons.lock_outline,
+                  size: 30,
+                  color: Colors.black54,
+                ),
+                'ລະຫັດ',
+                true),
             // _buildTextInputpassword(),
-            // _buttonok(),
+            _buttonok(),
           ],
         ),
       ),
@@ -40,26 +54,25 @@ class _LoginState extends State<Login> {
 
   _textwelcome() {
     return Container(
-        // margin: EdgeInsets.all(5.0),
+        margin: EdgeInsets.only(bottom: 10),
         alignment: Alignment.topCenter,
         child: Text(
-          'ຍິນດີຕ້ອງຮັບ',
+          'ຍິນດີຕ້ອນຮັບ',
           style: TextStyle(fontSize: 30),
         ));
   }
 
-  _buildTextInputusername() {
+  _buildTextInput(Icon prefixIcon, String hintText, bool isPassword) {
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: 30),
+      margin: EdgeInsets.only(bottom: 20),
       child: TextField(
+        obscureText: isPassword,
         decoration: InputDecoration(
-            hintText: "ຊື່ຜູ້ໄຊ້",
+            hintText: hintText,
             fillColor: Colors.white,
             filled: true,
-            prefixIcon: Icon(
-              Icons.person_outline,
-              size: 30,
-              color: Colors.black54,
-            ),
+            prefixIcon: prefixIcon,
             prefixIconConstraints: BoxConstraints(
               minWidth: 75,
             ),
@@ -74,20 +87,27 @@ class _LoginState extends State<Login> {
     );
   }
 
-  // _buildTextInputpassword() {
-  //   return Container(
-  //     child: Column(
-  //       children: <Widget>[TextField()],
-  //     ),
-  //   );
-  // }
-
-  // _buttonok() {
-  //   return Container(
-  //       child: Column(
-  //     children: <Widget>[
-  //       RaisedButton(),
-  //     ],
-  //   ));
-  // }
+  _buttonok() {
+    return Container(
+      margin: EdgeInsets.only(left: 120, right: 120),
+      // padding: EdgeInsets.symmetric(vertical: 10),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(
+            Radius.circular(50),
+          )),
+      child: FlatButton(
+        onPressed: () => (print("Sign in pressed.")),
+        child: Text(
+          "ຕົກລົງ",
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w800,
+            color: Colors.black54,
+            letterSpacing: 3,
+          ),
+        ),
+      ),
+    );
+  }
 }
