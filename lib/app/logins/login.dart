@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_demoapp/app/logins/forgotpwd.dart';
 import 'package:flutter_demoapp/app/logins/registor.dart';
 
 void main() {
@@ -63,9 +64,9 @@ class _LoginState extends State<Login> {
                 decoration: TextDecoration.underline)),
         onPressed: () {
           print('click forgot password');
-          // MaterialPageRoute materialPageRoute =
-          //     MaterialPageRoute(builder: (BuildContext context) => Homepage());
-          // Navigator.of(context).push(materialPageRoute);
+          MaterialPageRoute materialPageRoute =
+              MaterialPageRoute(builder: (BuildContext context) => Forgotpwd());
+          Navigator.of(context).push(materialPageRoute);
         },
       ),
     );
@@ -100,7 +101,7 @@ class _LoginState extends State<Login> {
       padding: EdgeInsets.only(bottom: 10, top: 5),
       child: TextFormField(
         decoration: InputDecoration(
-            hintText: 'username',
+            hintText: 'ຊື່ຜູ້ໃຊ້',
             fillColor: Colors.white,
             filled: true,
             prefixIcon: Icon(
@@ -129,7 +130,7 @@ class _LoginState extends State<Login> {
       child: TextFormField(
         obscureText: true,
         decoration: InputDecoration(
-            hintText: 'password',
+            hintText: 'ລະຫັດ',
             fillColor: Colors.white,
             filled: true,
             prefixIcon: Icon(
