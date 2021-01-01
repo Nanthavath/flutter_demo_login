@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_demoapp/app/homepage/home_page.dart';
+import 'package:flutter_demoapp/app/logins/registor.dart';
 
 void main() {
   runApp(Login());
@@ -166,7 +166,7 @@ class _LoginState extends State<Login> {
         onPressed: () {
           print('click registor');
           MaterialPageRoute materialPageRoute =
-              MaterialPageRoute(builder: (BuildContext context) => Homepage());
+              MaterialPageRoute(builder: (BuildContext context) => Registor());
           Navigator.of(context).push(materialPageRoute);
         },
       ),
