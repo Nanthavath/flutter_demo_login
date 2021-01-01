@@ -64,7 +64,6 @@ flutter:
     - family: NotoSanLao
       fonts:
         - asset: assets/fonts/NotoSansLao-Regular.ttf
-        - asset: assets/fonts/NotoSansLao-Bold.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
