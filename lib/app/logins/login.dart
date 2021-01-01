@@ -42,8 +42,31 @@ class _LoginState extends State<Login> {
             //     true),
             // _buildTextInputpassword(),
             _buttonok(),
+            _forgotpassword(),
           ],
         ),
+      ),
+    );
+  }
+
+  _forgotpassword() {
+    return Container(
+      alignment: Alignment.topCenter,
+      //  padding: EdgeInsets.symmetric(horizontal: 35),
+      child: FlatButton(
+        child: Text('--ລືມລະຫັດ--',
+            style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+                fontFamily: 'NotoSanLao',
+                decoration: TextDecoration.underline)),
+        onPressed: () {
+          print('click forgot password');
+          // MaterialPageRoute materialPageRoute =
+          //     MaterialPageRoute(builder: (BuildContext context) => Homepage());
+          // Navigator.of(context).push(materialPageRoute);
+        },
       ),
     );
   }
