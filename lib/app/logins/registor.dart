@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Registor extends StatefulWidget {
@@ -125,6 +126,7 @@ _buttonregistor() {
     child: FlatButton(
       onPressed: () {
         print('name = $nameString, email = $mailString, password = $pwdString');
+        register();
       },
       child: Text(
         'ລົງທະບຽນ',
@@ -132,6 +134,19 @@ _buttonregistor() {
       ),
     ),
   );
+}
+
+Future<void> register() async {
+  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  await firebaseAuth
+      .createUserWithEmailAndPassword(email: mailString, password: pwdString)
+      .then((respone) {
+    print('register success for email = $mailString');
+  }).catchError((repone) {
+    String title = repone.code;
+    String message = repone.message;
+    print('title = $title , message = $message');
+  });
 }
 
 class _Registor extends State<Registor> {
