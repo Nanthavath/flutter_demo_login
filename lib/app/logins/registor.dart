@@ -5,6 +5,7 @@ class Registor extends StatefulWidget {
   _Registor createState() => _Registor();
 }
 
+String nameString, mailString, pwdString;
 _nametxt() {
   return Container(
     margin: EdgeInsets.only(left: 20, right: 20),
@@ -29,6 +30,46 @@ _nametxt() {
             borderSide: BorderSide(color: Colors.yellow),
             borderRadius: BorderRadius.all(Radius.circular(50)),
           )),
+      onChanged: (String value) {
+        nameString = value.trim();
+      },
+    ),
+  );
+}
+
+_bottonpwd() {
+  return Container(
+    alignment: Alignment.topCenter,
+    margin: EdgeInsets.only(
+      left: 20,
+      right: 20,
+      top: 10,
+    ),
+
+    //padding: EdgeInsets.all(20),
+    child: TextFormField(
+      decoration: InputDecoration(
+        hintText: 'ລະຫັດ',
+        fillColor: Colors.white,
+        filled: true,
+        prefixIcon: Icon(
+          Icons.lock_outline,
+          size: 30,
+          color: Colors.black54,
+        ),
+        prefixIconConstraints: BoxConstraints(
+          minWidth: 75,
+        ),
+        enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(50)),
+            borderSide: BorderSide(color: Colors.white)),
+        focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(50)),
+            borderSide: BorderSide(color: Colors.white)),
+      ),
+      onChanged: (String value) {
+        pwdString = value.trim();
+      },
     ),
   );
 }
@@ -36,7 +77,7 @@ _nametxt() {
 _registortxt() {
   return Container(
     alignment: Alignment.topCenter,
-    padding: EdgeInsets.only(top: 30),
+    padding: EdgeInsets.only(top: 60),
     margin: EdgeInsets.only(bottom: 0),
     child: Text(
       'ລົງທະບຽນ',
@@ -55,7 +96,7 @@ _gmailtext() {
         fillColor: Colors.white,
         filled: true,
         prefixIcon: Icon(
-          Icons.lock_outline,
+          Icons.mail_outline,
           size: 30,
           color: Colors.black54,
         ),
@@ -67,6 +108,27 @@ _gmailtext() {
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(50)),
             borderSide: BorderSide(color: Colors.yellow)),
+      ),
+      onChanged: (String value) {
+        mailString = value.trim();
+      },
+    ),
+  );
+}
+
+_buttonregistor() {
+  return Container(
+    margin: EdgeInsets.only(top: 10, left: 50, right: 50),
+    decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.all(Radius.circular(50))),
+    child: FlatButton(
+      onPressed: () {
+        print('name = $nameString, email = $mailString, password = $pwdString');
+      },
+      child: Text(
+        'ລົງທະບຽນ',
+        style: TextStyle(color: Colors.black54),
       ),
     ),
   );
@@ -96,6 +158,8 @@ class _Registor extends State<Registor> {
             _registortxt(),
             _nametxt(),
             _gmailtext(),
+            _bottonpwd(),
+            _buttonregistor(),
           ],
         ),
       ),

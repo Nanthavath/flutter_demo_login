@@ -173,6 +173,26 @@ class _LoginState extends State<Login> {
       ),
       padding: EdgeInsets.only(right: 35),
     );
+    // return Container(
+    //   alignment: Alignment.centerRight,
+    //   //  padding: EdgeInsets.symmetric(horizontal: 35),
+    //   child: FlatButton(
+    //     child: Text('ລົງທະທຽນ',
+    //         style: TextStyle(
+    //             color: Colors.white,
+    //             fontWeight: FontWeight.bold,
+    //             fontSize: 20,
+    //             fontFamily: 'NotoSanLao',
+    //             decoration: TextDecoration.underline)),
+    //     onPressed: () {
+    //       print('click registor');
+    //       MaterialPageRoute materialPageRoute =
+    //           MaterialPageRoute(builder: (BuildContext context) => Registor());
+    //       Navigator.of(context).push(materialPageRoute);
+    //     },
+    //   ),
+    //   padding: EdgeInsets.only(right: 35),
+    // );
   }
 
   // _buildTextInput(Icon prefixIcon, String hintText, bool isPassword) {
@@ -182,7 +202,6 @@ class _LoginState extends State<Login> {
   _buttonok() {
     return Container(
       margin: EdgeInsets.only(left: 120, right: 120),
-      // padding: EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.all(
