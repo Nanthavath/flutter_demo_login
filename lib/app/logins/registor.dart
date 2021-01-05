@@ -138,6 +138,7 @@ _buttonregistor() {
 
 Future<void> register() async {
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+
   await firebaseAuth
       .createUserWithEmailAndPassword(email: mailString, password: pwdString)
       .then((respone) {
@@ -147,6 +148,17 @@ Future<void> register() async {
     String message = repone.message;
     print('title = $title , message = $message');
   });
+
+  // FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  // try {
+  //   await firebaseAuth
+  //       .createUserWithEmailAndPassword(email: mailString, password: pwdString)
+  //       .then((respone) {
+  //     print('register success for email = $mailString');
+  //   });
+  // } on FirebaseAuthException catch (e) {
+  //   e.message;
+  // }
 }
 
 class _Registor extends State<Registor> {
