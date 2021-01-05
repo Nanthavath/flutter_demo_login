@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_demoapp/app/homepage/home_page.dart';
 
 class Registor extends StatefulWidget {
   @override
@@ -143,6 +144,7 @@ Future<void> register() async {
       .createUserWithEmailAndPassword(email: mailString, password: pwdString)
       .then((respone) {
     print('register success for email = $mailString');
+    // setupDisplayName();
   }).catchError((repone) {
     String title = repone.code;
     String message = repone.message;
@@ -159,6 +161,22 @@ Future<void> register() async {
   // } on FirebaseAuthException catch (e) {
   //   e.message;
   // }
+}
+
+Future<void> setupDisplayName() async {
+  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+
+  var user = firebaseAuth.currentUser;
+  if (user != null) {
+    user.updateProfile(displayName: nameString);
+    // Navigator.of(context)
+    //     .pushAndRemoveUntil(Navigator, (Route<dynamic> route) => false);
+
+    // MaterialPageRoute materialPageRoute =
+    //     MaterialPageRoute(builder: (BuildContext context1) => Homepage());
+    // Navigator.of(context)
+    //     .pushAndRemoveUntil(materialPageRoute, (Route<dynamic> route) => false);
+  }
 }
 
 class _Registor extends State<Registor> {

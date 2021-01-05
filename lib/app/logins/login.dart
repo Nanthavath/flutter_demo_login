@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_demoapp/app/homepage/home_page.dart';
 import 'package:flutter_demoapp/app/logins/forgotpwd.dart';
 import 'package:flutter_demoapp/app/logins/registor.dart';
 
@@ -14,6 +16,22 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   @override
+  void initState() {
+    super.initState();
+    checkstatus();
+  }
+
+  Future<void> checkstatus() async {
+    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+    var user = firebaseAuth.currentUser;
+    if (user != null) {
+      MaterialPageRoute materialPageRoute =
+          MaterialPageRoute(builder: (BuildContext context) => Homepage());
+      Navigator.of(context).pushAndRemoveUntil(
+          materialPageRoute, (Route<dynamic> route) => false);
+    }
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
